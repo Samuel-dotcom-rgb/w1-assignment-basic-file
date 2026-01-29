@@ -69,4 +69,25 @@ class Program
             );
         }
     }
+
+//task 3
+    static void AddCharacter()
+    {
+        Console.Write("Enter Name: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Enter Class: ");
+        string characterClass = Console.ReadLine();
+
+        Console.Write("Enter Level: ");
+        string level = Console.ReadLine();
+
+        Console.Write("Enter HP: ");
+        string hp = Console.ReadLine();
+
+        string newLine = $"{name},{characterClass}, {level}, {hp}";
+        File.AppendAllText(filePath, newLine + Environment.NewLine);
+       
+       Console.WriteLine("Character added!");
+    }
 }
