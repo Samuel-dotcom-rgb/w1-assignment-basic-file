@@ -47,4 +47,26 @@ class Program
         Console.WriteLine("0. Exit");
         Console.Write("Choose an option:");
     }
+
+    // task 2
+    static void DisplayAllCharacters()
+    {
+        if (!File.Exists(filePath))
+        {
+            Console.WriteLine("No character file found.");
+            return;
+        }
+
+        string[] lines = File.RealAllLines(filePath);
+
+        Console.WriteLine("\n--- Characters ---");
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(',');
+
+            Console.WriteLine(
+                $"Name: {parts[0]}, Class: {parts[1]}, Level: {parts[2]},"
+            );
+        }
+    }
 }
