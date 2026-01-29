@@ -36,4 +36,15 @@ class Program
             }
         }
     }
+
+    // menu
+    static void DisplayMenu()
+    {
+        Console.WriteLine("\n=== Character Manager ===");
+        Console.WriteLine("1. Display Characters");
+        Console.WriteLine("2. Add Character");
+        Console.WriteLine("3. Level Up Character");
+        Console.WriteLine("0. Exit");
+        Console.Write("Choose an option:");
+    }
 }
