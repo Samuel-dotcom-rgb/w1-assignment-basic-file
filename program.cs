@@ -90,4 +90,35 @@ class Program
        
        Console.WriteLine("Character added!");
     }
+
+    // task 4
+    static void LevelUpCharacter()
+    {
+        if (!File.Exists(filePath))
+        {
+            Console.WriteLine("No character file found.");
+            return;
+        }
+
+        List<string> lines = new List<string>(File.ReadAllLines(filePath));
+
+        Console.WriteLine("\nChoose a character to level up:");
+        for (int i = 0; i < linesCound; i++)
+        {
+            string[] parts = lines[i].Split(',');
+            Console.WriteLine($"{i + 1}. {parts[0]} (Level {parts[2]})");
+        }
+
+        Console.Write("Enter number: ");
+        int choice = int.Parse(Console.ReadLine()) - 1;
+
+        string[] selected = lines[choice].Split(',');
+        int currentLevel = int.Parse(selected[2]);
+        selected[2] = (currentLevel + 1).ToString();
+
+        lines[choice] = string.Join(",", selected);
+        File.WriteAllLines(filePath, lines);
+
+        Console.WriteLine($"{selected[0]} leveled up to {selected[2]}!");
+    }
 }
